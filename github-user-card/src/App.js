@@ -2,11 +2,25 @@ import React from 'react';
 import './App.css';
 import axios from "axios";
 import UserCard from "./Components.js/UserCard";
+import Followers from './Components.js/Followers';
+import styled from 'styled-components';
+
+const Wrapper = styled.div `
+ 
+ 
+`
+
+
+
 class App extends React.Component {
-  state={
+  constructor(){
+    super()
+  
+  
+  this.state={
     name: [],
     }
-
+  }
     componentDidMount () {
       axios
       .get(`https://api.github.com/users/fabpot`)
@@ -26,10 +40,11 @@ class App extends React.Component {
 
     render () {
       return (
-        <div>
-          <h1>User card</h1>
+        <Wrapper>
+          <h1></h1>
           <UserCard user={this.state.name} img={this.state.img} bio={this.state.bio} blog={this.state.blog} followers={this.state.followers} />
-          </div>
+          <Followers followers={this.state.login} img={this.state.img} bio={this.state.bio}  />
+          </Wrapper>
       )
     }
 
