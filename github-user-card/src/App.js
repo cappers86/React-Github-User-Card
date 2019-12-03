@@ -11,13 +11,15 @@ class App extends React.Component {
       axios
       .get(`https://api.github.com/users/fabpot`)
       .then (res => {
-        console.log(res.data)
+        
         this.setState({
           name: res.data.name,
           img: res.data.avatar_url,
           bio: res.data.bio,
+          followers: res.data.followers,
           id: res.data.blog,
         });
+        console.log(res.data)
       })
       .catch (error => console.log (error));
     }
@@ -26,7 +28,7 @@ class App extends React.Component {
       return (
         <div>
           <h1>User card</h1>
-          <UserCard user={this.state.name} img={this.state.img} bio={this.state.bio} blog={this.state.blog} />
+          <UserCard user={this.state.name} img={this.state.img} bio={this.state.bio} blog={this.state.blog} followers={this.state.followers} />
           </div>
       )
     }
