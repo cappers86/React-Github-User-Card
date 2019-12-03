@@ -31,7 +31,7 @@ class App extends React.Component {
           img: res.data.avatar_url,
           bio: res.data.bio,
           followers: res.data.followers,
-          id: res.data.blog,
+          // id: res.data.blog,
         });
         console.log(res.data)
       })
@@ -42,8 +42,8 @@ class App extends React.Component {
       return (
         <Wrapper>
           <h1></h1>
-          <UserCard user={this.state.name} img={this.state.img} bio={this.state.bio} blog={this.state.blog} followers={this.state.followers} />
-          <Followers followers={this.state.login} img={this.state.img} bio={this.state.bio}  />
+          <UserCard user={this.state.name} img={this.state.img} followers={this.state.followers} />
+          <Followers   />
           </Wrapper>
       )
     }
